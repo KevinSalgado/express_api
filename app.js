@@ -9,11 +9,11 @@ app.listen(port, () => {
 });
 
 app.get("/v1/explorers", (req, res) => {
-  console.log(`Api Explorers GET ALL requests esto es un cambio${new Date()}`);
+  console.log(`Api Explorers GET ALL requests ${new Date()}`);
   const explorer1 = { id: 1, name: "Carlo1" };
   const explorer2 = { id: 2, name: "Carlo2" };
   const explorer3 = { id: 3, name: "Carlo3" };
-  const explorer4 = { id: 4, name: "Carloss4" };
+  const explorer4 = { id: 4, name: "Carlos4" };
   const explorers = [explorer1, explorer2, explorer3, explorer4];
   res.status(200).json(explorers);
 });
@@ -32,8 +32,15 @@ app.post("/v1/explorers", (req, res) => {
 });
 
 app.put("/v1/explorers/:id", (req, res) => {
-  console.log("Api Explorers PUT request ${new Date()}");
-  console.log("Update explorer with id ${req.params.id}");
+  console.log(`Api Explorers PUT request ${new Date()}`);
+  console.log(`Update explorer with id ${req.params.id}`);
   const requestBody = req.body;
   res.status(200).json({ message: "Update!" });
+});
+
+app.delete("/v1/explorers/:id", (req, res) => {
+  console.log(`Api Explorers DELETE request ${new Date()}`);
+  console.log(`Delete explorer with id ${req.params.id}`);
+  const requestBody = req.body;
+  res.status(200).json({ message: "Deleted" });
 });
